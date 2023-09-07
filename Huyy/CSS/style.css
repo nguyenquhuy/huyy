@@ -1,0 +1,218 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*Header Nav*/
+header {
+    font-family: 'Poppins', sans-serif;
+    background-color: hsl(252, 30%, 95%);
+    color: hsl(252, 30%, 17%);
+    overflow: hidden;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav {
+    width: 100%;
+    background-color: hsl(252, 30%, 100%);
+    padding: 0.7rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+    nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+.search-bar {
+    background-color: hsl(252, 30%, 95%);
+    border-radius: 2rem;
+    padding: 0.6rem 1rem;
+}
+
+    .search-bar input[type="search"] {
+        background: transparent;
+        width: 30vw;
+        margin-left: 1rem;
+        font-size: 0.9rem;
+        color: hsl(252, 30%, 17%);
+    }
+
+nav .button {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/*Login button*/
+.navbar-nav {
+    list-style: none;
+    padding: 0; /* Optional: Remove any default padding */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown button */
+.dropdown-btn {
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(177, 61, 80);
+    transition: all 300ms ease;
+}
+
+/* Style the dropdown items */
+.dropdown-item {
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+
+    /* Change color of dropdown items on hover */
+    .dropdown-item:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Style the dropdown divider */
+.dropdown-divider {
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Show the dropdown menu when the button is clicked */
+.dropdown-menu.show {
+    display: block;
+}
+
+/*If not login*/
+.login_btn {
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(177, 61, 80);
+    transition: all 300ms ease;
+}
+
+    .login_btn:hover {
+        opacity: 0.8;
+    }
+
+/*Footer*/
+
+footer {
+    display: grid;
+    justify-content: center;
+    align-content: end;
+    min-height: 100vh;
+    padding: 50px;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #fff;
+}
+
+footer .fcontainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+footer .fcontainer .sec h2{
+    position: relative;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+footer .fcontainer .sec p{
+    color: #555;    
+}
+
+footer .fcontainer .sci{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,50px);    
+}
+
+footer .fcontainer .sci li{
+    list-style: none;
+}
+
+footer .fcontainer .sci li a{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background: #333;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+footer .fcontainer .sci li a i{
+    color: #fff;
+    font-size: 20px;
+}
+
+footer .fcontainer .quicklinks{
+    position: relative;
+}
+
+footer .fcontainer .quicklinks ul li{
+    list-style: none;
+}
+
+footer .fcontainer .quicklinks ul li a{
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+footer .fcontainer .contact .info{
+    position: relative;
+}
+
+footer .fcontainer .contact .info li{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+
+footer .fcontainer .contact .info li span{
+    color: #555;
+    font-size: 20px;    
+}
+
+footer .fcontainer .contact .info li a{
+    color: #555;
+    text-decoration: none;
+}
+
