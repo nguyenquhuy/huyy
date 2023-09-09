@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Huyy
 {
@@ -21,28 +16,32 @@ namespace Huyy
                 // Modify the HTML code for the header-nav div when the user is logged in.
                 header_nav.InnerHtml = $@"
                 <nav>
-                <div class=""container"">
-                <h2>Site name</h2>
-                <div class=""search-bar"">
-                    <i class=""uil uil-search""></i>
-                    <input type=""search"" placeholder=""Search here"">
-                </div>
-                <div class=""collapse navbar-collapse"" id=""navbarSupportedContent"">
-                    <ul class=""navbar-nav ml-auto"">
-                        <li class=""nav-item dropdown"">
-                            <button class=""dropdown-btn"" id=""loginBtn"">{username}</button>
-                            <div class=""dropdown-menu"" id=""dropdownMenu"" aria-labelledby=""navbarDropdown"">
-                                <a class=""dropdown-item"" href=""#"">Dang khoa hoc</a>
-                                <div class=""dropdown-divider""></div>
-                                <a class=""dropdown-item"" href=""#"">Khóa học của tôi</a>
-                                <div class=""dropdown-divider""></div>
-                                <a class=""dropdown-item"" href=""#"">Đăng xuất</a>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class=""container"">
+                        <h2>Site name</h2>
+                        <div class=""search-bar"">
+                            <i class=""uil uil-search""></i>
+                            <input type=""search"" placeholder=""Search here"">
+                        </div>
+                        <div class=""collapse navbar-collapse"" id=""navbarSupportedContent"">
+                            <ul class=""navbar-nav ml-auto"">
+                                <li class=""nav-item dropdown"">
+                                    <button class=""dropdown-btn"" id=""loginBtn"">
+                                        {username}
+                                        <i class=""fa fa-caret-down"" aria-hidden=""true""></i> <!-- Moved the icon inside the button -->
+                                    </button>
+                                    <div class=""dropdown-menu"" id=""dropdownMenu"" aria-labelledby=""loginBtn""> <!-- Updated aria-labelledby -->
+                                        <a class=""dropdown-item"" href=""#"">Dang khoa hoc</a>
+                                        <div class=""dropdown-divider""></div>
+                                        <a class=""dropdown-item"" href=""#"">Khóa học của tôi</a>
+                                        <div class=""dropdown-divider""></div>
+                                        <a class=""dropdown-item"" href=""Logout.aspx"">Đăng xuất</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
                 </nav>";
+
             }
             else
             {

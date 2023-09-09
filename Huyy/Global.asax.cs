@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace Huyy
 {
@@ -17,8 +12,8 @@ namespace Huyy
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["login"] = 1;
-            Session["username"] = "huypro";
+            Session["login"] = 0;
+            Session["username"] = "huy";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
