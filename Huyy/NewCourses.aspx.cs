@@ -12,13 +12,16 @@ namespace Huyy
     public partial class NewCourses : System.Web.UI.Page
     {
         string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStringName"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Form["add"] != null && Session["login"] == "1")
+            string user = Request.QueryString["username"];
+            // Check if the "add" form parameter exists and the user is logged in.
+            if (user != null && Session["login"].ToString() == "1")
             {
                 string name = Request.Form["name"];
                 string description = Request.Form["description"];
-                string id = Request.Form["id"];
+                string owner = Session["username"].ToString();
                 string source = Request.Form["source"];
                 string slug = Request.Form["slug"];
 
@@ -27,19 +30,20 @@ namespace Huyy
                     conn.Open();
 
                     // Use a parameterized query to prevent SQL injection
-                    string insertQuery = "INSERT INTO courses (name, description, id, sources, slug) VALUES (@name, @description, @id, @source, @slug)";
+                    string insertQuery = "INSERT INTO courses (name, description, sources, slug, owner) VALUES (@name, @description, @source, @slug, @owner)";
 
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@description", description);
-                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@source", source);
                         cmd.Parameters.AddWithValue("@slug", slug);
+                        cmd.Parameters.AddWithValue("@owner", owner);
 
                         try
                         {
                             cmd.ExecuteNonQuery();
+                            // Redirect to the page where the new course is listed
                             Response.Redirect("MyCourses.aspx");
                         }
                         catch (Exception ex)
@@ -53,10 +57,10 @@ namespace Huyy
             }
             else
             {
+                // If "add" form parameter is not present or the user is not logged in, redirect to the index page.
                 Response.Redirect("Index.aspx");
             }
-
-
         }
+
     }
 }

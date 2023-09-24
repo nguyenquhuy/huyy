@@ -30,9 +30,9 @@ namespace Huyy
                                         <i class=""fa fa-caret-down"" aria-hidden=""true""></i> <!-- Moved the icon inside the button -->
                                     </button>
                                     <div class=""dropdown-menu"" id=""dropdownMenu"" aria-labelledby=""loginBtn""> <!-- Updated aria-labelledby -->
-                                        <a class=""dropdown-item"" href=""#"">Dang khoa hoc</a>
+                                        <a class=""dropdown-item"" href=""NewCourses.aspx?username={Uri.EscapeDataString(username)}"">Đăng khóa học</a>
                                         <div class=""dropdown-divider""></div>
-                                        <a class=""dropdown-item"" href=""#"">Khóa học của tôi</a>
+                                        <a class=""dropdown-item"" href=""MyCourses.aspx?username={Uri.EscapeDataString(username)}"">Khóa học của tôi</a>
                                         <div class=""dropdown-divider""></div>
                                         <a class=""dropdown-item"" href=""Logout.aspx"">Đăng xuất</a>
                                     </div>
@@ -41,8 +41,8 @@ namespace Huyy
                         </div>
                     </div>
                 </nav>";
-
             }
+
             else
             {
                 // Modify the HTML code for the header-nav div when the user is not logged in.

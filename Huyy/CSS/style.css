@@ -365,4 +365,38 @@ footer .fcontainer .contact .info li a{
   max-width: 400px;
 } */
 
+/*My courses*/
+.my_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 20px; /* Add spacing below the title */
+}
+
+.table {
+    width: 80%; /* Adjust the width as needed */
+    border-collapse: collapse;
+}
+
+    .table th,
+    .table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #f2f2f2;
+    }
+
+
+
+
 

@@ -13,7 +13,7 @@ namespace Huyy
         {
             Session["login"] = 0;
             Session["username"] = "";
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Login.aspx");
         }
     }
 }

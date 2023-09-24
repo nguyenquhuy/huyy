@@ -10,10 +10,6 @@
             <label for="description">Mô tả</label>
             <input type="text" class="form-control" id="description" name ="description" required>
         </div>
-        <div class="form-group">
-            <label for="name">ID</label>
-            <input type="text" class="form-control" id="id" name ="id" required>
-        </div>
         <div class="form-group">          
             <label for="name">Source (Use URL)</label>
             <input type="text" class="form-control" id="source" name ="source" required>
