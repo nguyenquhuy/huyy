@@ -19,6 +19,7 @@ namespace Huyy
                 connection.Open();
                 string user = Request.QueryString["username"];
                 string query = "SELECT * FROM courses where owner = @user";
+                int stt = 1;
                 if (user != null)
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -30,35 +31,52 @@ namespace Huyy
                             {
                                 string tablehead =
                                 "<tr>" +
+                                    "<td> STT </td>" +
                                     "<td> Tên khóa học </td>" +
                                     "<td> Mô tả </td>" +
                                 "</tr>";
                                 tableHead.InnerHtml += tablehead;
                                 while (reader.Read())
                                 {
+                                    string id = reader.GetGuid(0).ToString();
                                     string cname = reader.GetString(1);
                                     string des = reader.GetString(2);
-                                    string owner = reader.GetString(5);
+                                    string owner = reader.GetString(5);                                   
+
                                     if (owner == user)
                                     {
                                         if (cname != null)
                                         {
                                             my_label.Text = "Khóa học của tôi";
-                                            string tableRow = "<tr><td>" + cname + "</td>" +
-                                                          "<td>" + des + "</td>" +
-                                                          "<td>" + "<a href=#>Edit</a>" + "</td>" +
-                                                          "<td>" + "<a href=#>Delete</a>" + "</td>" +
-                                                          "" +
-                                                          "</tr>";
+
+                                            // Encode the username for the URL
+                                            string encodedUsername = Uri.EscapeDataString(id);
+
+                                            // Create the Edit link with the correct query parameter
+                                            string editLink = "<a href='Edit.aspx?i=" + encodedUsername + "'>Edit</a>";
+                                            string deleteLink = "<a href='#'>Delete</a>";
+
+                                            // Create the table row with the data and links
+                                            string tableRow = "<tr>" +
+                                                "<td>" + stt + "</td>" +
+                                                "<td>" + cname + "</td>" +
+                                                "<td>" + des + "</td>" +
+                                                "<td>" + editLink + "</td>" +
+                                                "<td>" + deleteLink + "</td>" +
+                                                "</tr>";
+
                                             // Add the table row to the table body
                                             // Make sure you initialize the tableBody.InnerHtml before the loop
                                             tableBody.InnerHtml += tableRow;
-                                        }
+                                        }                                        
                                     }
+                                    
                                     else
                                     {
                                         my_label.Text = "Khóa học của " + owner;
-                                        string tableRow = "<tr><td>" + cname + "</td>" +
+                                        string tableRow = "<tr>" +
+                                                      "<td>" + stt + "</td>" +
+                                                      "<td>" + cname + "</td>" +
                                                       "<td>" + des + "</td>" +
                                                       "</td></tr>";
 
@@ -66,7 +84,8 @@ namespace Huyy
                                         // Make sure you initialize the tableBody.InnerHtml before the loop
                                         tableBody.InnerHtml += tableRow;
                                     }
-                                    // Add the data to the table row                            
+                                    // Add the data to the table row
+                                    stt++;
                                 }
                             }
                             else
