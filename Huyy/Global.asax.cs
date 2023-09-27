@@ -13,7 +13,7 @@ namespace Huyy
         protected void Session_Start(object sender, EventArgs e)
         {
             Session["login"] = 0;
-            Session["username"] = "huy";
+            Session["username"] = "";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

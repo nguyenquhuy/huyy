@@ -19,6 +19,8 @@ namespace Huyy
                 connection.Open();
                 string user = Request.QueryString["username"];
                 string query = "SELECT * FROM courses where owner = @user";
+
+                string owner1 = Session["username"].ToString();
                 int stt = 1;
                 if (user != null)
                 {
@@ -41,25 +43,28 @@ namespace Huyy
                                     string id = reader.GetGuid(0).ToString();
                                     string cname = reader.GetString(1);
                                     string des = reader.GetString(2);
-                                    string owner = reader.GetString(5);                                   
+                                    string owner = reader.GetString(5);
+                                    string encodedId = Uri.EscapeDataString(id);
+                                    string encodedCname = Uri.EscapeDataString(cname);
+                                    string coursesLink = $"<a href='CoursesDetail.aspx?i={encodedId}&name={encodedCname}'>{cname}</a>";
 
-                                    if (owner == user)
+                                    if (owner1 == user)
                                     {
-                                        if (cname != null)
-                                        {
                                             my_label.Text = "Khóa học của tôi";
 
                                             // Encode the username for the URL
-                                            string encodedUsername = Uri.EscapeDataString(id);
+                                            
 
-                                            // Create the Edit link with the correct query parameter
-                                            string editLink = "<a href='Edit.aspx?i=" + encodedUsername + "'>Edit</a>";
-                                            string deleteLink = "<a href='#'>Delete</a>";
+                                        // Create the Edit link with the correct query parameter
+                                            
+                                            string editLink = "<a href='Edit.aspx?i=" + encodedId + "'>Edit</a>";
+                                            string deleteLink = "<a href='javascript:void(0);' onclick='confirmDelete(\"" + encodedId + "\")'>Delete</a>";
+
 
                                             // Create the table row with the data and links
                                             string tableRow = "<tr>" +
                                                 "<td>" + stt + "</td>" +
-                                                "<td>" + cname + "</td>" +
+                                                "<td>" + coursesLink + "</td>" +
                                                 "<td>" + des + "</td>" +
                                                 "<td>" + editLink + "</td>" +
                                                 "<td>" + deleteLink + "</td>" +
@@ -68,7 +73,7 @@ namespace Huyy
                                             // Add the table row to the table body
                                             // Make sure you initialize the tableBody.InnerHtml before the loop
                                             tableBody.InnerHtml += tableRow;
-                                        }                                        
+                                                                                
                                     }
                                     
                                     else
@@ -76,7 +81,7 @@ namespace Huyy
                                         my_label.Text = "Khóa học của " + owner;
                                         string tableRow = "<tr>" +
                                                       "<td>" + stt + "</td>" +
-                                                      "<td>" + cname + "</td>" +
+                                                      "<td>" + coursesLink + "</td>" +
                                                       "<td>" + des + "</td>" +
                                                       "</td></tr>";
 
@@ -88,12 +93,13 @@ namespace Huyy
                                     stt++;
                                 }
                             }
+                            //Ok phan nay
                             else
                             {
-                                string owner1 = Session["username"].ToString();
-                                if (owner1 == user)
+                                if (owner1 != null && owner1 == user)
                                 {
-                                    my_label.Text = "Bạn chưa có khóa học nào. " + "<a href = 'NewCourses.aspx'>Đăng ngay</a>";
+                                    my_label.Text = "Bạn chưa có khóa học nào. " + "<a href='NewCourses.aspx?username=" + user + "'>Đăng ngay</a>";
+
                                 }
                                 else
                                 {
@@ -106,13 +112,9 @@ namespace Huyy
                 else
                 {
                     Response.Redirect("Index.aspx");
+                    
                 }
             }
         }
     }
 }
-
-/*
- 
-                                    
-*/

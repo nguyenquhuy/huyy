@@ -23,10 +23,7 @@ namespace Huyy
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
-                        string query = "SELECT * FROM courses WHERE Coursesid = @id";
-                        string update = "update courses set name = " + name.Text + ", description = " + description.Text +
-                                        ", sources = " + source.Text + ", slug = " + slug.Text +
-                                        "where CoursesId = " + id;
+                        string query = "SELECT * FROM courses WHERE Coursesid = @id";                        
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@id", id);
@@ -69,7 +66,7 @@ namespace Huyy
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            Response.Redirect("MyCourses.aspx");
+                            Response.Redirect("MyCourses.aspx?username=" + Session["username"]);
                         }
                         else
                         {

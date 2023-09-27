@@ -397,6 +397,30 @@ footer .fcontainer .contact .info li a{
     }
 
 
+/*Courses Detail*/
+
+/* Style for the outer container, which centers the content vertically and horizontally */
+.detail_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+/* Style for the "Được đăng bởi" heading */
+.heading {
+    text-align: left; /* Align text to the left */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+/* Style for the iframe and description */
+.content {
+    text-align: center; /* Center-align the content */
+}
+
+
+
 
 
 

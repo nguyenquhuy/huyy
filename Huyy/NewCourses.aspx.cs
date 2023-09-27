@@ -44,7 +44,7 @@ namespace Huyy
                         {
                             cmd.ExecuteNonQuery();
                             // Redirect to the page where the new course is listed
-                            Response.Redirect("MyCourses.aspx");
+                            Response.Redirect("MyCourses.aspx?username=" + Session["username"]);
                         }
                         catch (Exception ex)
                         {
