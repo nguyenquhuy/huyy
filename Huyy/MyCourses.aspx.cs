@@ -31,11 +31,12 @@ namespace Huyy
                         {                            
                             if (reader.HasRows)
                             {
+                                page_title.InnerHtml = "<h1>KHÓA HỌC CỦA TÔI</h1>";
                                 string tablehead =
                                 "<tr>" +
                                     "<td> STT </td>" +
                                     "<td> Tên khóa học </td>" +
-                                    "<td> Mô tả </td>" +
+                                    "<td colspan='4'> Mô tả </td>" +
                                 "</tr>";
                                 tableHead.InnerHtml += tablehead;
                                 while (reader.Read())
@@ -50,9 +51,7 @@ namespace Huyy
 
                                     if (owner1 == user)
                                     {
-                                            my_label.Text = "Khóa học của tôi";
-
-                                            // Encode the username for the URL
+                                         // Encode the username for the URL
                                             
 
                                         // Create the Edit link with the correct query parameter
@@ -66,8 +65,8 @@ namespace Huyy
                                                 "<td>" + stt + "</td>" +
                                                 "<td>" + coursesLink + "</td>" +
                                                 "<td>" + des + "</td>" +
-                                                "<td>" + editLink + "</td>" +
-                                                "<td>" + deleteLink + "</td>" +
+                                                "<td class = 'click'>" + editLink + "</td>" +
+                                                "<td class = 'click'>" + deleteLink + "</td>" +
                                                 "</tr>";
 
                                             // Add the table row to the table body
@@ -78,7 +77,7 @@ namespace Huyy
                                     
                                     else
                                     {
-                                        my_label.Text = "Khóa học của " + owner;
+                                        page_title.InnerHtml = "<h1>KHÓA HỌC CỦA "+owner+"<h1>";
                                         string tableRow = "<tr>" +
                                                       "<td>" + stt + "</td>" +
                                                       "<td>" + coursesLink + "</td>" +
@@ -98,12 +97,12 @@ namespace Huyy
                             {
                                 if (owner1 != null && owner1 == user)
                                 {
-                                    my_label.Text = "Bạn chưa có khóa học nào. " + "<a href='NewCourses.aspx?username=" + user + "'>Đăng ngay</a>";
+                                    page_title.InnerHtml  = "<h1>Bạn chưa có khóa học nào. " + "<a href='NewCourses.aspx?username=" + user + "'>Đăng ngay</a></h1>";
 
                                 }
                                 else
                                 {
-                                    my_label.Text = "Người dùng này không có khóa học nào";
+                                    page_title.InnerHtml = "<h1>Người dùng này không có khóa học nào</h1>";
                                 }
                             }
                         }
