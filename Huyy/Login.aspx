@@ -16,7 +16,7 @@
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox"> Remember me</label>
-                    <a href="">Forgot Password</a>
+                    <a href="Forgot.aspx">Forgot Password</a>
                 </div>
                 <input type="submit" name="dangnhap" id="dangnhap" class="btn" value="Login"/>
                 <div class="register-link">

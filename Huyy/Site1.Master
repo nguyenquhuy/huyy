@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>Huyshop</title>
+    <title>Huyy- Nơi này không có gì cả</title>
     <link rel="stylesheet" href="./CSS/style.css"/>
     <link rel="stylesheet" href="./Content/font-awesome.min.css">
     <link rel="stylesheet" href="./Content/font-awesome.css">
@@ -13,7 +13,7 @@
 <body>
     <%-- Header Here --%>
     
-        <header class="header">
+    <header class="header">
         <div class="container">
             <a href="Index.aspx"><h2>Huyy</h2></a>            
             <div class="search-bar">
