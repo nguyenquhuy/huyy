@@ -7,9 +7,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
+hr {
+    border: 0;
+    height: 100px;
+    width: 100%;
+}
+
 
 /*Header Nav*/
-header {
+/*header {
     font-family: 'Poppins', sans-serif;
     background-color: red;
     color: hsl(252, 30%, 17%);
@@ -55,7 +61,101 @@ nav .button {
     display: flex;
     align-items: center;
     gap: 2rem;
+}*/
+
+/* Styles for the header container */
+/* Styles for the header container */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
 }
+
+/* Styles for the container (flexbox) */
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribute items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+/* Style the site name */
+.container a h2 {
+    margin: 0;
+    padding: 10px;
+    margin-left: 20px;    
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Styles for the search bar */
+.search-bar {
+    background-color: hsl(252, 30%, 95%);
+    border-radius: 2rem;
+    padding: 0.6rem 1rem;
+}
+
+    .search-bar input[type="search"] {
+        background: transparent;
+        width: 30vw;
+        margin-left: 1rem;
+        font-size: 0.9rem;
+        color: hsl(252, 30%, 17%);
+    }
+
+/* Style the login button */
+.login-button {
+    margin: 10px;
+}
+
+/* Style the login button content (adjust as needed) */
+.header_nav {
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Style the dropdown button */
+.dropdown-btn {
+    background-color: transparent;
+    margin-right:40px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the dropdown menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown items */
+.dropdown-item {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+    /* Style the dropdown items on hover */
+    .dropdown-item:hover {
+        background-color: #007bff;
+    }
+
+/* Style the dropdown divider */
+.dropdown-divider {
+    border-top: 1px solid #ddd;
+}
+
 
 /*Login button*/
 .navbar-nav {
@@ -114,26 +214,32 @@ nav .button {
     font-weight: 500;
     border-radius: 2rem;
     cursor: pointer;
-    color: white;
-    background-color: rgb(177, 61, 80);
-    transition: all 300ms ease;
+    margin-right:40px;
 }
 
     .login_btn:hover {
         opacity: 0.8;
     }
 
-/*Footer*/
 
+/*.body_container {
+    background: burlywood;
+    background-size: cover;
+    color: #fff;
+}*/
+/*Footer*/
 footer {
-    display: grid;
+    /*display: flex;
     justify-content: center;
-    align-content: end;
-    min-height: 100vh;
+    align-content: end;*/
+    /*min-height: -400vh;*/
     padding: 50px;
     position: relative;
+    bottom:0;
+    left:0;
+    right:0;
     width: 100%;
-    height: auto;
+    height: 100%;
     padding: 50px 100px;
     background: #fff;
 }
@@ -223,7 +329,7 @@ footer .fcontainer .contact .info li a{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: aqua;
+    background-color: burlywood;
     background-size: cover;
     background-position: center;
 }
@@ -329,25 +435,23 @@ footer .fcontainer .contact .info li a{
 
 /*Add new courses*/
 /* Center the form container vertically and horizontally */
-.add_container {
+. /*add_container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-}
-
+}*/
 /* Style your form container */
-.form-container {
+/*.form-container {
     text-align: center;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f8f8f8;
-}
-
+}*/
 /* Style your form elements */
-.form-group {
+/*.form-group {
     margin-bottom: 15px;
 }
 
@@ -358,43 +462,157 @@ footer .fcontainer .contact .info li a{
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-}
-
+}*/
 /* Adjust the width of the form if needed */
 /* .form-container {
   max-width: 400px;
 } */
+/*.add_body {
+    background: burlywood;
+    background-size: cover;
+    color: #fff;
+    font-family: Arial, sans-serif;*/ /* Optional: Apply a font family if needed */
+/*}*/
+/* Style the form container */
+.add-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+    /* Style the form heading */
+    .add-form h1 {
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    /* Style form paragraphs */
+    .add-form p {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Style form input fields */
+    .add-form input[type="text"] {
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        margin-bottom: 10px;
+    }
+
+    /* Style the submit button */
+    .add-form input[type="submit"] {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 15px;
+        width: 50%;
+        border: 0;
+        border-radius: 5px;
+        background-color: #337ab7;
+        color: #fff;
+        margin: 20px auto;
+        display: block; /* Center the button */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        /* Style the submit button on hover */
+        .add-form input[type="submit"]:hover {
+            background-color: #286090;
+        }
 
 /*My courses*/
 .my_container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #adacac;
 }
 
-.page-title {
-    font-size: 24px; /* Adjust the font size as needed */
-    margin-bottom: 20px; /* Add spacing below the title */
+.page-title h1 {
+    
 }
 
-.table {
-    width: 80%; /* Adjust the width as needed */
+table {
+    width: 100%;
     border-collapse: collapse;
 }
 
-    .table th,
-    .table td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
+.header_fixed {
+    max-height: 100vh;
+    width: 100%;
+    overflow: auto;
+    border: 1px solid #dddddd;
+}
+
+    .header_fixed thead th {
+        position: sticky;
+        top: 0;
+        background-color: black;
+        color: #e6e7e8;
+        font-size: 15px;
     }
 
-    .table th {
-        background-color: #f2f2f2;
+th,
+td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+    td img {
+        height: 60px;
+        width: 60px;
+        border-radius: 100%;
+        border: 5px solid #e6e7e8;
     }
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:nth-child(odd) {
+    background-color: #edeef1;
+}
+
+tr:hover td {
+    color: #44b478;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+td .click {
+    border: none;
+    text-decoration: none;
+    padding: 7px 20px;
+    border-radius: 20px;
+    background-color: black;
+    color: #e6e7e8;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
 
 
 /*Courses Detail*/
@@ -418,6 +636,86 @@ footer .fcontainer .contact .info li a{
 .content {
     text-align: center; /* Center-align the content */
 }
+
+/*Index---------------------------------------------------------*/
+/* Style for the card container */
+#home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;   
+    align-items:center;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+/* Style for each card */
+.card {   
+    margin: 10px;
+    margin-top: 50px;
+    padding: 10px;
+    top: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;    
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style for the card image */
+.card-img-top {
+    max-width: 100%;
+    max-height: 200px; /* Adjust the maximum height as needed */
+    width: auto;
+    height: auto;
+}
+
+/* Style for the card title */
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+/* Style for the card text */
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Style for the "Go somewhere" button */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.forgot{
+    text-align:center
+}
+
+
+
+
 
 
 

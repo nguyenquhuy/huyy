@@ -208,6 +208,7 @@
     <Content Include="Delete.aspx" />
     <Content Include="Edit.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Forgot.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\hinh-anh-thien-nhien.jpg" />
     <Content Include="Index.aspx" />
@@ -241,6 +242,13 @@
     </Compile>
     <Compile Include="Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forgot.aspx.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forgot.aspx.designer.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

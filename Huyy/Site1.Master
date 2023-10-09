@@ -4,20 +4,29 @@
 
 <html>
 <head runat="server">
-    <title>Huyshop</title>
+    <title>Huyy- Nơi này không có gì cả</title>
     <link rel="stylesheet" href="./CSS/style.css"/>
     <link rel="stylesheet" href="./Content/font-awesome.min.css">
     <link rel="stylesheet" href="./Content/font-awesome.css">
-
+    
 </head>
 <body>
     <%-- Header Here --%>
+    
     <header class="header">
-        <div class="header_nav" id="header_nav" runat="server">
-            <!-- Your content here -->
-            
+        <div class="container">
+            <a href="Index.aspx"><h2>Huyy</h2></a>            
+            <div class="search-bar">
+                <form>
+                    <input type="search" id="searchInput" placeholder="Search here" onkeypress="return enterKeyPressed(event)">
+                </form>
+            </div>
+            <div class="header_nav" id="header_nav" runat="server">
+                <!-- Your login button content here -->
+            </div>
         </div>
     </header>
+    <hr />
     <%-- End Header --%>
 
     <%-- Body here --%>
@@ -25,6 +34,7 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
+    <hr />
     <%-- End Body --%>
             
     <%-- Footer Here --%>
@@ -84,6 +94,21 @@
 
     <script src="./Js/JavaScript.js">
     </script>
+
+    <script>
+        function handleSearchKeyPress(event) {
+            if (event.keyCode === 13) { // Enter key
+                var searchQuery = document.getElementById("searchInput").value.trim();
+                if (searchQuery !== "") {
+                    var encodedQuery = encodeURIComponent(searchQuery);
+                    window.location.href = "Search.aspx?query=" + encodedQuery;
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+
         
 </body>
 </html>

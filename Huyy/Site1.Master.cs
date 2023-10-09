@@ -13,23 +13,17 @@ namespace Huyy
                 // Check if the user is logged in.
                 string username = Session["username"] != null ? Session["username"].ToString() : "";
 
-                // Modify the HTML code for the header-nav div when the user is logged in.
-                header_nav.InnerHtml = $@"
-                <nav>
-                    <div class=""container"">
-                        <h2>Site name</h2>
-                        <div class=""search-bar"">
-                            <i class=""uil uil-search""></i>
-                            <input type=""search"" placeholder=""Search here"">
-                        </div>
+
+                string htmlCode = $@"               
+                                           
                         <div class=""collapse navbar-collapse"" id=""navbarSupportedContent"">
                             <ul class=""navbar-nav ml-auto"">
                                 <li class=""nav-item dropdown"">
                                     <button class=""dropdown-btn"" id=""loginBtn"">
                                         {username}
-                                        <i class=""fa fa-caret-down"" aria-hidden=""true""></i> <!-- Moved the icon inside the button -->
+                                        <i class=""fa fa-caret-down"" aria-hidden=""true""></i>
                                     </button>
-                                    <div class=""dropdown-menu"" id=""dropdownMenu"" aria-labelledby=""loginBtn""> <!-- Updated aria-labelledby -->
+                                    <div class=""dropdown-menu"" id=""dropdownMenu"" aria-labelledby=""loginBtn"">
                                         <a class=""dropdown-item"" href=""NewCourses.aspx?username={Uri.EscapeDataString(username)}"">Đăng khóa học</a>
                                         <div class=""dropdown-divider""></div>
                                         <a class=""dropdown-item"" href=""MyCourses.aspx?username={Uri.EscapeDataString(username)}"">Khóa học của tôi</a>
@@ -39,29 +33,26 @@ namespace Huyy
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </nav>";
+                    
+                ";
+
+                header_nav.InnerHtml = htmlCode;
+
             }
 
             else
             {
                 // Modify the HTML code for the header-nav div when the user is not logged in.
                 header_nav.InnerHtml = $@"
-                <nav>
-                <div class=""container"">
-                <h2>Site name</h2>
-                <div class=""search-bar"">
-                    <i class=""uil uil-search""></i>
-                    <input type=""search"" placeholder=""Search here"">
-                </div>
-                <div class=""button"">
-                    <button class=""login_btn"">Login</button>
-                </div>
-                </div>
-                </nav>";
+                
+                               
+                    <div class=""button"">
+                        <button class=""login_btn"" onclick=""redirectToLogin()"">Login</button>
+                    </div>
+                
+                ";
             }
         }
-
 
     }
 }
